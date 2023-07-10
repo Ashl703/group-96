@@ -4,6 +4,8 @@
 ## Project1
 implement the naïve birthday attack of reduced SM3
 实现方式：Python 实现结果：能够实现32bit的生日攻击
+![image](https://github.com/Ashl703/group-xx/assets/138503504/4a7bc0b4-e936-46a0-bbaa-739c69da3829)
+
 ## Project2
 ## Project3
 ## Project4
