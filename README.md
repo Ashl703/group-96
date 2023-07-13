@@ -12,6 +12,10 @@ implement the Rho method of reduced SM3
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/27cbb450-5530-4f1f-8d0c-d4e3d74cd7ba)
 
 ## Project3
+implement length extension attack for SM3, SHA256, etc.
+md5的长度扩展攻击
+![image](https://github.com/Ashl703/group-xx/assets/138503504/abd7331a-a584-43b8-8966-7a0fcc79dde1)
+
 ## Project4
 ## Project5
 ## Project6
