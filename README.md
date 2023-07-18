@@ -19,6 +19,8 @@ md5的长度扩展攻击
 ## Project4
 ## Project5
 Impl Merkle Tree following RFC6962
+实现方式：Python 
+实现思路：用列表存储10w个data block的哈希值，然后构建merkle tree,具体来说根据data blocks的奇偶来找到合并对象，最终生成根节点。存在性证明的思路类似，生成最终的哈希值然后与根节点进行比较，达成目的。
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/15a7940e-1d81-4d1a-b65b-884d48a90e88)
 
 ## Project6
