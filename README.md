@@ -32,6 +32,7 @@ Impl Merkle Tree following RFC6962
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/7d094472-8bde-4e1a-9d22-89224ed339f4)
 
 ## Project10
+report on the application of this deduce technique in Ethereum with ECDSA
 ## Project11
 impl sm2 with RFC6979
 ## Project12
