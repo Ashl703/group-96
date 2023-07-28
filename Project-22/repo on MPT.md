@@ -1,7 +1,27 @@
+# research report on MPT
+## MPT简述
+Merkle Patricia Tree(MPT)是一种基于Patricia Tree和Merkle树（一种哈希树）的数据结构。它是以太坊(Ethereum)区块链中使用的一种重要的数据结构，用于存储账户、合约和交易等数据。
+## Patricia Tree
+Patricia Tree又称compact prefix tree（压缩前缀树）；前缀树也叫做字典树或Trie，前缀树中的节点通过它们在树中的位置（或者说从根节点到其他节点的路径）来定义。下图所示存储了"A"，"to"，"tea"，"ted"，"ten"，"i"，"in"，"inn"的key。
+![image](https://github.com/Ashl703/group-xx/assets/138503504/2b6ecbb2-caa7-4336-9851-7c339a325740)
+而Patricia Tree是一种更节省空间的前缀树。对于Patricia树的每个节点，如果该节点是唯一的儿子的话，就和父节点合并。因此一棵Patricia树的任何内部节点存在2个或以上的孩子节点。下图将i,in,inn合并为inn节点，就是一个压缩前缀树。值得注意的是，有压缩就有碰撞，可以通过压缩前缀树避免重复存储，同时也要注意对于压缩前缀带来的混淆问题（相关HP算法见下文）。
+![image](https://github.com/Ashl703/group-xx/assets/138503504/4dcad541-df12-4ce2-aa47-c9d77ca93827)
+## Merkle Tree
+Merkle Tree是由计算机科学家 Ralph Merkle 在很多年前提出的，并以他本人的名字来命名；Merkle Tree被用来归纳一个区块中的所有交易，同时生成整个交易集合的数字指纹。此外，由于Merkle Tree的存在，使得在Bitcoin这种公链的场景下，扩展一种“轻节点”实现简单支付验证变成可能。下图展示了Merkle Tree的结构特点。
+![image](https://github.com/Ashl703/group-xx/assets/138503504/31a8b46a-796b-4b9a-b15d-c902ef15507a)
+## MPT (in Ethereum)
+MPT中的节点包括空节点(NULL)、叶子节点(leaf)、扩展节点(extension)和分支节点(branch)。HP(Hex-Prefix)编码指明出现连续的半字节编码是奇数或者偶数位。
+### 空节点(NULL)
+用一个空的字符串表示。
+### 叶子节点(leaf)
+Key-end是剩下的Key的半字节编码，value是值。
+### 扩展节点(extension)
+Shared nibble(s)是剩下的重复的Key的半字节编码，next node字段指向另一个节点（一般为分支节点）。
+### 分支节点(branch)
+17元组[v0...v15,vt]。其前16个项对应于这些点在其遍历中的键的十六个可能的半字节值中的每一个。第17个字段是存储在那些在当前节点结束了的节点所存储的值。
+![image](https://github.com/Ashl703/group-xx/assets/138503504/04e20deb-9f9e-4bae-9046-98ebbe30af0a)
 
-research report on MPT
-MPT树定义 一种经过改良的、融合了默克尔树和前缀树两种树结构优点的数据结构，以太坊中，MPT是一个非常重要的数据结构，在以太坊中，帐户的交易信息、状态以及相应的状态变更，还有相关的交易信息等都使用MPT来进行管理，其是整个数据存储的重要一环。交易树，收据树，状态树都是采用的MPT结构。
-
+ 
 MPT树的作用 1.存储任意长度的key-value键值对数据； 2.提供了一种快速计算所维护数据集哈希标识的机制； 3.提供了快速状态回滚的机制； 4.提供了一种称为默克尔证明的证明方法，进行轻节点的扩展，实现简单支付验证；
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/b167d5d2-1ee5-4ef4-8b50-4139cb27b522)
 MPT树中的节点包括空节点、叶子节点、扩展节点和分支节点:
