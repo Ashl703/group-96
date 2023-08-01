@@ -1,4 +1,6 @@
 # 比较Firefox和谷歌的记住密码插件的实现区别
+![image](https://github.com/Ashl703/group-xx/assets/138503504/a6bfbe10-9022-4216-8b13-58bc1057c2f1)
+
 ## 存储方式
 Firefox 使用名为 "Login Manager" 的内置工具来管理和存储用户的用户名和密码。这些数据存储在浏览器的登录数据库中，默认情况下被加密保护。谷歌浏览器使用称为 "Password Manager" 的内置工具来存储密码，它也将密码加密保存在浏览器的登录数据库中。
 ## 密码同步
