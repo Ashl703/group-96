@@ -13,6 +13,7 @@ sm2是一种椭圆曲线公钥密码算法。
 * generate_key()生成公私钥对
 * sign()签名
 * verify()验证
+
 k由RFC6979生成
 ## 结果
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/4fd0276a-4de5-4da5-83e8-82ab73656a40)
