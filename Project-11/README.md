@@ -1,11 +1,21 @@
-当使用 RFC6979 规范实现 SM2 签名和验证时，有几个关键步骤：
+# impl-sm2-with-RFC6979
+## RFC6979
+RFC 6979是一项定义了确定性签名算法（Deterministic Signature Algorithm，DSA）的标准。RFC 6979提出了一种基于哈希函数（如SHA-256）和伪随机函数的方法来生成确定性随机数。此处RFC6979用来以一种“确定性”方式产生k值，k=SHA256(sk+SM3(M)),其中sk为私钥，M为消息。
+## sm2
+sm2是一种椭圆曲线公钥密码算法。
+首先定义了椭圆曲线的参数<br>
+定义的函数：<br>
+~~~
+extended_euclidean()扩展欧几里得算法<br>
+mod_inverse()模逆运算<br>
+elliptic_add()椭圆曲线加<br>
+elliptic_double()椭圆曲线自加<br>
+elliptic_multiply()椭圆曲线乘运算<br>
+generate_key()生成公私钥对<br>
+sign()签名<br>
+verify()验证<br>
+~~~
+k由RFC6979生成
+## 结果
+![image](https://github.com/Ashl703/group-xx/assets/138503504/4fd0276a-4de5-4da5-83e8-82ab73656a40)
 
-密钥生成：使用椭圆曲线 SECP256K1 生成私钥和对应的公钥。
-HMAC_DRBG：根据 RFC6979 规范中定义的 HMAC_DRBG 伪随机数生成器算法生成一个伪随机数生成器对象。该算法使用私钥作为种子，并通过 SHA-256 散列函数产生伪随机数。
-
-签名生成：对待签名消息进行 SHA-256 散列，得到消息的哈希值。然后使用 HMAC_DRBG 生成器生成一个随机数 k，确保它在曲线的阶值范围内。接下来，根据 SM2 签名算法计算 s = (z + k) * (1 + dA)^-1。其中，z 是消息的哈希值，k 是随机数，dA 是私钥。
-
-签名验证：首先，使用相同的方式计算待验证消息的哈希值 z。然后，按照 SM2 验证算法的步骤，计算 u1 = (e * t^(-1)) mod n 和 u2 = (r * t^(-1)) mod n，其中 e 是哈希值，t 是 r+s 的模 n 值，n 是曲线的阶值，r 和 s 是签名中的值。然后，通过椭圆曲线的数学运算计算点 P = u1 * G + u2 * QA。最后，验证 r == (P_x + r) mod n 来确定签名是否有效。
-
-这段代码使用了 P-256 曲线代替 SM2 的曲线。实际应用中，需要使用适当的 SM2 曲线和密钥派生函数进行密钥生成和加密，以确保安全性。
-![image](https://github.com/Ashl703/group-xx/assets/138503504/d4a989c2-057c-4ab8-96b6-79da6cd8e783)
