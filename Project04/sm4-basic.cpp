@@ -1,10 +1,7 @@
 //0112898c 0f6ecc34 af9ecfbf 30f88b34 fa510549 4fd18e4f eecc4f42 ce0d3328
-#include<ctime>
+#include<chrono>
 #include <stdint.h>
 #include <stdio.h>
-
-#define CLK_TCK  CLOCKS_PER_SEC
-#define CLOCKS_PER_SEC 1000
 
 #define ROTATE_LEFT(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
 #define FF1(x, y, z) ((x) ^ (y) ^ (z))
@@ -14,8 +11,7 @@
 
 #define GG2(x) (((x) & 0xFFFFFFFF) ^ ((x) >> 16))
 
-clock_t  start, end;
-double duration;
+
 
 void sm3_compress(uint32_t state[8], const uint8_t block[64]) {
     uint32_t w[68];
@@ -73,24 +69,24 @@ void sm3_compress(uint32_t state[8], const uint8_t block[64]) {
 }
 
 int main() {
-    
+
     uint32_t state[8] = { 0x01234567, 0x89ABCDEF, 0xFEDCBA98, 0x76543210, 0xF0E1D2C3, 0x4B697474, 0x54686174, 0x7320 };
     uint8_t block[64] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF, 0xFE, 0xDC, 0xBA, 0x98, 0x76, 0x54, 0x32, 0x10,
                          0xF0, 0xE1, 0xD2, 0xC3, 0x4B, 0x69, 0x74, 0x74, 0x54, 0x68, 0x61, 0x74, 0x73, 0x20 };
-
-    start = clock();
-    for (int i = 0; i < 20; i++) {
+    using namespace std::chrono;
+    double duration;
+    auto start = high_resolution_clock::now();
+    for (int i = 0; i < 1000; i++) {
         sm3_compress(state, block);
     }
-    
-    end = clock();
-    duration = double(end - start) / CLK_TCK;
+    auto end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start).count() / 1000.0;
     // 输出计算后的结果
     for (int i = 0; i < 8; i++) {
         printf("%08x ", state[i]);
     }
     printf("\n");
-    printf("%f", duration/20);//运行时间 s
-    
+    printf("%f", duration);//运行时间 s
+
     return 0;
 }
