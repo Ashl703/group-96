@@ -1,6 +1,9 @@
 # do your best to optimize SM3 implementation (software)
 ## 主要函数
-
+* ROTATE_LEFT：循环左移
+* FF1、GG1：实现逻辑运算
+* P0、P1：实现置换运算
+* sm3_compress：压缩函数
 ## 使用OpenMP中的多线程技术（parallel）
 在计算核心部分的循环周围添加#pragma omp parallel for指令，通过多线程并行执行循环。这将使每个线程处理不同的迭代，从而加速计算过程。
 ## 运行时间对比
