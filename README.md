@@ -1,6 +1,6 @@
 # group-96
 * 注：由于一开始不熟悉github的使用方法，导致22个项目没有正确创建文件夹；因此评分老师只需看与下文名称一致的文件夹和此README.md文件即可，其余文件请忽视，感谢谅解！<br>
-* 共完成11个项目：Project01、Project02、Project03、Project04、Project05、Project08、Project09、Project10、Project11、Project17、Project22。<br>
+* 共完成11个项目：Project01、Project02、Project03、Project04、Project05、Project08、Project09、Project-10、Project-11、Project-17、Project-22。<br>
 * 基本情况如下，每个项目的具体情况见相关文件夹的md文件。
 ## 笔记本配置
 * CPU:11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
@@ -47,10 +47,10 @@ AES software implementation<br>
 实现方式：Python<br>
 实现结果：<br>
 ![image](https://github.com/Ashl703/group-xx/assets/138503504/7d094472-8bde-4e1a-9d22-89224ed339f4)
-## Project10
+## Project-10
 report on the application of this deduce technique in Ethereum with ECDSA<br>
-report具体从ECDSA(椭圆曲线数字签名算法)概述、ECDSA原理、在以太坊中使用ECDSA从签名中推导出公钥的应用三个方面入手,详见Project10中的readme.md文件。
-## Project11
+report具体从ECDSA(椭圆曲线数字签名算法)概述、ECDSA原理、在以太坊中使用ECDSA从签名中推导出公钥的应用三个方面入手,详见Project-10中的readme.md文件。
+## Project-11
 impl sm2 with RFC6979<br>
 实现方式：Python<br>
 实现结果：<br>
@@ -65,9 +65,9 @@ impl sm2 with RFC6979<br>
 未完成
 ## Project16
 未完成
-## Project17
+## Project-17
 比较Firefox和谷歌的记住密码插件的实现区别<br>
-report中具体从存储位置、自动登录、密码同步、密码生成器、自动填充、安全性六个方面比较了二者的区别，详见Project17中的compare.md文件。
+report中具体从存储位置、自动登录、密码同步、密码生成器、自动填充、安全性六个方面比较了二者的区别，详见Project-17中的compare.md文件。
 ## Project18
 未完成
 ## Project19
@@ -76,9 +76,9 @@ report中具体从存储位置、自动登录、密码同步、密码生成器�
 未完成
 ## Project21
 未完成
-## Project22
+## Project-22
 research report on MPT<br>
-report中具体从MPT简述、Patricia Tree、Merkle Tree、MPT (in Ethereum)、MPT构造过程、HP编码、MPT基本操作七个方面比较了二者的区别，详见Project22中的repo on MPT.md文件。<br>
+report中具体从MPT简述、Patricia Tree、Merkle Tree、MPT (in Ethereum)、MPT构造过程、HP编码、MPT基本操作七个方面比较了二者的区别，详见Project-22中的repo on MPT.md文件。<br>
 ## 分工表
 独自完成<br>
 组员一：谢兴婷 学号：202100460165
