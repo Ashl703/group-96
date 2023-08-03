@@ -76,6 +76,7 @@ int main() {
     using namespace std::chrono;
     double duration;
     auto start = high_resolution_clock::now();
+    //为了得到测试时间，运行1000次取平均
     for (int i = 0; i < 1000; i++) {
         sm3_compress(state, block);
     }
